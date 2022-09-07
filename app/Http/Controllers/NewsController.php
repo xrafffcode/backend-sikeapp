@@ -73,7 +73,9 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.news.edit', [
+            'news' => News::findOrFail($id)
+        ]);
     }
 
     /**
@@ -85,7 +87,12 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $news = News::findOrFail($id)->update($request->all());
+            return redirect()->route('news.index')->with('success', 'News updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('news.edit', $id)->with('error', 'Error updating news');
+        }
     }
 
     /**
@@ -96,6 +103,11 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            News::findOrFail($id)->delete();
+            return redirect()->route('news.index')->with('success', 'News deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('news.index')->with('error', 'Error deleting news');
+        }
     }
 }

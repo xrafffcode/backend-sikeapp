@@ -1,4 +1,5 @@
 <x-app-layout title="News" active="news">
+    <x-alert />
     <div class="card">
         <div class="card-header">
             Data Berita
@@ -13,6 +14,7 @@
                             <th>Description</th>
                             <th>Image</th>
                             <th>Content</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +28,17 @@
                                         width="250">
                                 </td>
                                 <td>{!! Str::limit(strip_tags($data->content), 50) !!}</td>
+                                <td nowrap>
+                                    <a href="{{ route('news.edit', $data->id) }}" class="btn btn-primary">Edit
+                                        Data</a>
+                                    <form action="{{ route('news.destroy', $data->id) }}" method="post"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('yakin ingin menghapus data?');">Hapus</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
