@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\API\HospitalController;
+use App\Http\Controllers\API\NewsController;
+use App\Http\Controllers\Api\DoctorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::get('news', [NewsController::class, 'all']);
+    Route::get('hospitals', [HospitalController::class, 'all']);
+    Route::get('doctors', [DoctorController::class, 'all']);
 });
