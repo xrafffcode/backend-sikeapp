@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DoctorCategoryController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\NewsController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HospitalController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +23,5 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('news', NewsController::class);
 Route::resource('hospital', HospitalController::class);
+Route::resource('doctor-category', DoctorCategoryController::class);
+Route::resource('doctor', DoctorController::class);

@@ -85,7 +85,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <label for="rating" class="form-label">Map Url</label>
+                        <label for="rating" class="form-label">Rating</label>
                         <input type="number" name="rating" class="form-control @error('rating') is-invalid @enderror"
                             id="rating" placeholder="rating.." value="{{ old('rating') }}">
                         @error('rating')
