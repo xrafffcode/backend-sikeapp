@@ -6,7 +6,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DrugCategoryController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\HospitalController;
-// use App\Http\Controllers\DrugController;
+use App\Http\Controllers\DrugController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +28,5 @@ Route::resource('news', NewsController::class);
 Route::resource('hospital', HospitalController::class);
 Route::resource('doctor-category', DoctorCategoryController::class);
 Route::resource('doctor', DoctorController::class);
-// Route::resource('drug', Drug::class);
+Route::resource('drug', DrugController::class);
 Route::resource('drug-category', DrugCategoryController::class);

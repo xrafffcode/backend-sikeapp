@@ -1,4 +1,4 @@
-<x-app-layout title="Create Obat" active="doctor">
+<x-app-layout title="Create Obat" active="drug">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Create Drug</h4>
@@ -12,7 +12,7 @@
                             <label for="name" class="form-label">Nama Obat</label>
                             <input type="text" name="name"
                                 class="form-control @error('name') is-invalid @enderror" id="name"
-                                placeholder="Masukan nama dokter.." value="{{ old('name') }}">
+                                placeholder="Masukan nama obat.." value="{{ old('name') }}">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

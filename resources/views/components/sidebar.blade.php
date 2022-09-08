@@ -76,12 +76,12 @@
                         <span>Category Obat</span>
                     </a>
                 </li>
-                {{-- <li class="sidebar-item {{ $active == 'drug' ? 'active' : '' }}">
+                <li class="sidebar-item {{ $active == 'drug' ? 'active' : '' }}">
                     <a href="{{ route('drug.index') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Obat</span>
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>

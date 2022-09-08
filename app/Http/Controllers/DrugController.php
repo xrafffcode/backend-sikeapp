@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Drug;
+use App\Models\DrugCategory;
 
 class DrugController extends Controller
 {
@@ -13,7 +15,9 @@ class DrugController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.drug.index', [
+            'drug' => Drug::with(['category'])->get(),
+        ]);
     }
 
     /**
@@ -23,7 +27,10 @@ class DrugController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.drug.create', [
+            'drug_category' => DrugCategory::all(),
+            'drug' => Drug::all()
+        ]);
     }
 
     /**
@@ -34,7 +41,18 @@ class DrugController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:100',
+            'image' => 'required',
+            'description' => 'required',
+        ]);
+
+        try {
+            Drug::create($request->all());
+            return redirect()->route('drug.index')->with('success', 'Drug created successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('drug.create')->with('error', 'Error creating Drug');
+        }
     }
 
     /**
@@ -56,7 +74,9 @@ class DrugController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('drug.edit', [
+            'drug' => Drug::findOrFail($id)
+        ]);
     }
 
     /**
@@ -68,7 +88,12 @@ class DrugController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $drug = Drug::findOrFail($id);
+            return redirect()->route('drug.index')->with('success', 'drug updated successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('drug.edit')->with('error', 'Error updating drug');
+        }
     }
 
     /**
@@ -79,6 +104,11 @@ class DrugController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Drug::findOrFail($id)->delete();
+            return redirect()->route('drug.index')->with('success', 'drug deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('drug.index')->with('error', 'Error deleting drug');
+        }
     }
 }

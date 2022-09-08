@@ -1,8 +1,8 @@
-<x-app-layout title="Dokter" active="doctor">
+<x-app-layout title="Drug" active="drug">
     <x-alert />
     <div class="card">
         <div class="card-header">
-            Data Dokter
+            Data Obat
         </div>
         <div class="card-body">
             <div class="table-responsive">
