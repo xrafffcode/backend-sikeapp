@@ -70,6 +70,18 @@
                         <span>Doctor</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ $active == 'drug-category' ? 'active' : '' }}">
+                    <a href="{{ route('drug-category.index') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Category Obat</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ $active == 'drug' ? 'active' : '' }}">
+                    <a href="{{ route('drug.index') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Obat</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
