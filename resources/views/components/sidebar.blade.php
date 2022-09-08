@@ -58,6 +58,18 @@
                         <span>Hospital</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ $active == 'doctor-category' ? 'active' : '' }}">
+                    <a href="{{ route('doctor-category.index') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Category Doctor</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ $active == 'doctor' ? 'active' : '' }}">
+                    <a href="{{ route('doctor.index') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Doctor</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
