@@ -14,7 +14,7 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        return view ('pages.hospital.index', [
+        return view('pages.hospital.index', [
             'hospitals' => Hospital::all()
         ]);
     }
@@ -37,6 +37,8 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $this->validate($request, [
             'name' => 'required|max:100',
             'image' => 'required',
@@ -90,7 +92,7 @@ class HospitalController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $hospital = Hospital::findOrFail($id)->update($request->all());
+            Hospital::findOrFail($id)->update($request->all());
             return redirect()->route('hospital.index')->with('success', 'Hospital updated successfully');
         } catch (\Exception $e) {
             return redirect()->route('hospital.edit')->with('error', 'Error updating hospital');

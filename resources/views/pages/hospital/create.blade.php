@@ -20,17 +20,6 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <input type="text" name="description"
-                                class="form-control @error('description') is-invalid @enderror" id="description"
-                                placeholder="Deskripsi singkat.." value="{{ old('description') }}">
-                            @error('description')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
                             <label for="image" class="form-label">Image</label>
                             <input type="text" name="image"
                                 class="form-control @error('image') is-invalid @enderror" id="image"
@@ -42,54 +31,74 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="content" class="form-label">Open Time</label>
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" name="description"
+                                class="form-control @error('description') is-invalid @enderror" id="description"
+                                placeholder="Deskripsi singkat.." value="{{ old('description') }}">
+                            @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="open_time" class="form-label">Open Time</label>
                             <input type="text" name="open_time"
                                 class="form-control @error('open_time') is-invalid @enderror" id="open_time"
                                 placeholder="Waktu.." value="{{ old('open_time') }}">
-                            @error('content')
+                            @error('open_time')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="content" class="form-label">Phone</label>
+                            <label for="phone" class="form-label">Phone</label>
                             <input type="text" name="phone"
                                 class="form-control @error('phone') is-invalid @enderror" id="phone"
                                 placeholder="Phonee.." value="{{ old('phone') }}">
-                            @error('content')
+                            @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="content" class="form-label">Address</label>
+                            <label for="address" class="form-label">Address</label>
                             <input type="text" name="address"
                                 class="form-control @error('address') is-invalid @enderror" id="address"
                                 placeholder="address.." value="{{ old('address') }}">
-                            @error('content')
+                            @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="content" class="form-label">Map Url</label>
+                            <label for="map_url" class="form-label">Map Url</label>
                             <input type="text" name="map_url"
                                 class="form-control @error('map_url') is-invalid @enderror" id="map_url"
                                 placeholder="map_url.." value="{{ old('map_url') }}">
-                            @error('content')
+                            @error('map_url')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
+                        <label for="rating" class="form-label">Map Url</label>
+                        <input type="number" name="rating" class="form-control @error('rating') is-invalid @enderror"
+                            id="rating" placeholder="rating.." value="{{ old('rating') }}">
+                        @error('rating')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary me-1 mb-4 float-end">Submit</button>
-                </form>
             </div>
+            <button type="submit" class="btn btn-primary me-1 mb-4 float-end">Submit</button>
+            </form>
         </div>
+    </div>
     </div>
 
 

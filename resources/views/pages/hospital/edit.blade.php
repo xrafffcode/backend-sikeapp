@@ -11,8 +11,8 @@
                     <div class="form-body">
                         <input type="hidden" name="id" value="{{ $hospital->id }}">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Name</label>
-                            <input type="text" name="title" class="form-control" id="title"
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="name"
                                 placeholder="Pembaruan nama.." value="{{ $hospital->name }}">
                         </div>
                         <div class="mb-3">

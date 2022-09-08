@@ -12,9 +12,6 @@ class HospitalController extends Controller
     public function all()
     {
         $hospitals = Hospital::all();
-        return ResponseFormatter::success(
-            $hospitals,
-            'Data rumah sakit berhasil diambil'
-        );
+        return response()->json($hospitals);
     }
 }

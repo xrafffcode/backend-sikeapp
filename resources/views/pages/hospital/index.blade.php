@@ -15,9 +15,10 @@
                             <th>Image</th>
                             <th>Open Time</th>
                             <th>Phone</th>
-                            <th>ddress</th>
+                            <th>Address</th>
                             <th>Map Link</th>
                             <th>Rating</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,9 +32,11 @@
                                         width="250">
                                 </td>
                                 <td>{{ $data->open_time }}</td>
+                                <td>{{ $data->phone }}</td>
                                 <td>{{ $data->address }}</td>
                                 <td>{{ $data->map_url }}</td>
                                 <td>{{ $data->rating }}</td>
+
                                 {{-- <td>{!! Str::limit(strip_tags($data->open_time), 40) !!}</td>
                                 <td>{!! Str::limit(strip_tags($data->phone), 40) !!}</td> --}}
                                 <td nowrap>
