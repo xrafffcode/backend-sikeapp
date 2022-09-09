@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\DoctorCategory;
 use App\Models\Hospital;
+
 class DoctorController extends Controller
 {
     /**
@@ -44,7 +45,8 @@ class DoctorController extends Controller
         $this->validate($request, [
             'name' => 'required|max:100',
             'image' => 'required',
-            //rafli
+            'categories_id' => 'required',
+            'hospitals_id' => 'required',
         ]);
 
         try {

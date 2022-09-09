@@ -11,9 +11,6 @@ class DoctorController extends Controller
     public function all()
     {
         $doctors = Doctor::with('category', 'hospital')->get();
-        return ResponseFormatter::success(
-            $doctors,
-            'Data rumah sakit berhasil diambil'
-        );
+        return response()->json($doctors);
     }
 }

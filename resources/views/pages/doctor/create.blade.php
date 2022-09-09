@@ -32,7 +32,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="categories_id" class="form-label">Category</label>
-                            <select class="form-select @error('categories_id') is-invalid @enderror" name="categories_id" id="">
+                            <select class="form-select @error('categories_id') is-invalid @enderror"
+                                name="categories_id">
                                 <option value="">Pilih Category Doctor</option>
                                 @foreach ($doctor_category as $c)
                                     <option value="{{ $c->id }}">{{ $c->name }}</option>
@@ -46,7 +47,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="hospitals_id" class="form-label">Workplace</label>
-                            <select class="form-select @error('hospitals_id') is-invalid @enderror" name="hospitals_id" id="">
+                            <select class="form-select @error('hospitals_id') is-invalid @enderror" name="hospitals_id">
                                 <option value="">Pilih Category Hospital</option>
                                 @foreach ($hospital as $h)
                                     <option value="{{ $h->id }}">{{ $h->name }}</option>

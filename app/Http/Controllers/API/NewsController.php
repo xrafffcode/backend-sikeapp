@@ -12,9 +12,6 @@ class NewsController extends Controller
     public function all()
     {
         $news = News::all();
-        return ResponseFormatter::success(
-            $news,
-            'Data berita berhasil diambil'
-        );
+        return response()->json($news);
     }
 }
