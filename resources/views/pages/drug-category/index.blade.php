@@ -1,4 +1,4 @@
-<x-app-layout title="Category Obat" active="drug-category">
+<x-app-layout title="Category Obat" active="drug">
     <x-alert />
     <div class="card">
         <div class="card-header">

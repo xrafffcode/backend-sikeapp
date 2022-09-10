@@ -48,40 +48,57 @@
                 </li>
                 <li class="sidebar-item {{ $active == 'news' ? 'active' : '' }}">
                     <a href="{{ route('news.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-newspaper"></i>
                         <span>News</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ $active == 'hospitals' ? 'active' : '' }}">
                     <a href="{{ route('hospital.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-hospital-fill"></i>
                         <span>Hospital</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ $active == 'doctor-category' ? 'active' : '' }}">
-                    <a href="{{ route('doctor-category.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>Category Doctor</span>
-                    </a>
-                </li>
-                <li class="sidebar-item {{ $active == 'doctor' ? 'active' : '' }}">
-                    <a href="{{ route('doctor.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                <li class="sidebar-item  has-sub m {{ $active == 'doctor' ? 'active' : '' }}">
+                    <a href="" class='sidebar-link'>
+                        <i class="bi bi-person-heart"></i>
                         <span>Doctor</span>
                     </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('doctor-category.index') }}" class='sidebar-link'>
+                                <i class="bi bi-bookmarks-fill"></i>
+                                <span>Category Doctor</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('doctor.index') }}" class='sidebar-link'>
+                                <i class="bi bi-person-heart"></i>
+                                <span>Doctor</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="sidebar-item {{ $active == 'drug-category' ? 'active' : '' }}">
-                    <a href="{{ route('drug-category.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>Category Obat</span>
+                <li class="sidebar-item  has-sub m {{ $active == 'drug' ? 'active' : '' }}">
+                    <a href="" class='sidebar-link'>
+                        <i class="bi bi-heart-pulse-fill"></i>
+                        <span>Drug</span>
                     </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('drug-category.index') }}" class='sidebar-link'>
+                                <i class="bi bi-bookmarks-fill"></i>
+                                <span>Drug Category</span>
+                            </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('drug.index') }}" class='sidebar-link'>
+                                <i class="bi bi-heart-pulse-fill"></i>
+                                <span>Drug</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="sidebar-item {{ $active == 'drug' ? 'active' : '' }}">
-                    <a href="{{ route('drug.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>Obat</span>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>

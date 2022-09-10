@@ -1,4 +1,4 @@
-<x-app-layout title="Category Dokter" active="doctor-category">
+<x-app-layout title="Category Dokter" active="doctor">
     <x-alert />
     <div class="card">
         <div class="card-header">

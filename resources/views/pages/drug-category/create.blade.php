@@ -1,4 +1,4 @@
-<x-app-layout title="Create Category Obat" active="drug-category">
+<x-app-layout title="Create Category Obat" active="drug">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Create Obat Kategori</h4>

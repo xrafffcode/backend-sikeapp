@@ -1,4 +1,4 @@
-<x-app-layout title="Create Category Dokter" active="doctor-category">
+<x-app-layout title="Create Category Dokter" active="doctor">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Create Dokter Kategori</h4>

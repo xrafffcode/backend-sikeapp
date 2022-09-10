@@ -1,11 +1,12 @@
-<x-app-layout title="Edit Category Doctor" active="doctor-category">
+<x-app-layout title="Edit Category Doctor" active="doctor">
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Edit Dokter Kategori</h4>
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-horizontal" action="{{ route('doctor-category.update', $doctor_category->id) }}" method="POST">
+                <form class="form form-horizontal" action="{{ route('doctor-category.update', $doctor_category->id) }}"
+                    method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-body">
