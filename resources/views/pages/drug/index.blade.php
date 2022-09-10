@@ -13,6 +13,8 @@
                             <th>Name</th>
                             <th>Image</th>
                             <th>Description</th>
+                            <th>Category</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,7 +23,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>
-                                    <img src="{{ $data->image }}" alt="{{ $data->title }}" class="img-fluid"
+                                    <img src="{{ Storage::url($data->image) }}" alt="{{ $data->title }}" class="img-fluid"
                                         width="250">
                                 </td>
                                 <td>{{ $data->description }}</td>

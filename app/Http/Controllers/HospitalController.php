@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hospital;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HospitalController extends Controller
 {
@@ -108,8 +109,8 @@ class HospitalController extends Controller
     public function destroy($id)
     {
         try {
-            $hospital = Hospital::findOrFail($id);
-            $hospital->delete();
+            Storage::disk('public')->delete(Hospital::findOrFail($id)->image);
+            Hospital::findOrFail($id)->delete();
             return redirect()->route('hospital.index')->with('success', 'Hospital deleted successfully');
         } catch (\Exception $e) {
             return redirect()->route('hospital.index')->with('error', 'Error deleting hospital');

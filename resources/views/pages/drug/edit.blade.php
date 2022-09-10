@@ -8,7 +8,7 @@
                 <form class="form form-horizontal" action="{{ route('drug.update', $drug->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <div class="form-body">
+                    <div class="mb-3">
                         <input type="hidden" name="id" value="{{ $drug->id }}">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nama Category</label>
@@ -18,9 +18,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input type="text" name="image" class="form-control" id="image"
-                            placeholder="URL Image.." value="{{ $drug->image }}">
-
+                        <img src="{{ Storage::url($drug->image) }}" alt="image" class="w-100">
+                        <input type="file" name="image" id="image" accept="image/png, image/gif, image/jpeg"
+                            class="form-control" value="{{ $gallery->image }}">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>

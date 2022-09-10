@@ -12,7 +12,7 @@
                     <div class="form-group position-relative has-icon-left mb-4">
                         <input id="email" type="email"
                             class="form-control form-control-xl @error('email') is-invalid @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="email">
+                            value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

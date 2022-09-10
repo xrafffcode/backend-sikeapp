@@ -12,7 +12,7 @@
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name"
                                 class="form-control @error('name') is-invalid @enderror" id="name"
-                                placeholder="Ganti rumah sakit.." value="{{ old('name') }}">
+                                placeholder="Rumah Sakit Elizabet.." value="{{ old('name') }}">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -21,20 +21,20 @@
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Image</label>
-                            <input type="text" name="image"
-                                class="form-control @error('image') is-invalid @enderror" id="image"
-                                placeholder="URL Image.." value="{{ old('image') }}">
+                            <input class="form-control @error('image') is-invalid @enderror" type="file"
+                                id="image" name="image" value="{{ old('image') }}">
                             @error('image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            <img src="#" class="img-fluid mt-3" id="blah" alt="image" width="300"
+                                style="display: none">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <input type="text" name="description"
-                                class="form-control @error('description') is-invalid @enderror" id="description"
-                                placeholder="Deskripsi singkat.." value="{{ old('description') }}">
+                            <textarea name="description" id="description" cols="30" rows="10"
+                                class="form-control @error('description') is-invalid @enderror" placeholder="description.." id="description">{{ old('description') }}</textarea>
                             @error('description')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -43,9 +43,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="open_time" class="form-label">Open Time</label>
-                            <input type="text" name="open_time"
+                            <input type="time" name="open_time"
                                 class="form-control @error('open_time') is-invalid @enderror" id="open_time"
-                                placeholder="Waktu.." value="{{ old('open_time') }}">
+                                value="{{ old('open_time') }}">
                             @error('open_time')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -56,7 +56,7 @@
                             <label for="phone" class="form-label">Phone</label>
                             <input type="text" name="phone"
                                 class="form-control @error('phone') is-invalid @enderror" id="phone"
-                                placeholder="Phonee.." value="{{ old('phone') }}">
+                                placeholder="(0821) 2131" value="{{ old('phone') }}">
                             @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
                             <label for="address" class="form-label">Address</label>
                             <input type="text" name="address"
                                 class="form-control @error('address') is-invalid @enderror" id="address"
-                                placeholder="address.." value="{{ old('address') }}">
+                                placeholder="Jakarta" value="{{ old('address') }}">
                             @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
                             <label for="map_url" class="form-label">Map Url</label>
                             <input type="text" name="map_url"
                                 class="form-control @error('map_url') is-invalid @enderror" id="map_url"
-                                placeholder="map_url.." value="{{ old('map_url') }}">
+                                placeholder="https://g.page/rsuelisabethpwt?share" value="{{ old('map_url') }}">
                             @error('map_url')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -87,7 +87,7 @@
                         </div>
                         <label for="rating" class="form-label">Rating</label>
                         <input type="number" name="rating" class="form-control @error('rating') is-invalid @enderror"
-                            id="rating" placeholder="rating.." value="{{ old('rating') }}">
+                            id="rating" placeholder="5" value="{{ old('rating') }}">
                         @error('rating')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -105,7 +105,14 @@
     @push('scripts')
         <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
         <script>
-            CKEDITOR.replace('content');
+            CKEDITOR.replace('description');
+        </script>
+        <script>
+            image.onchange = b => {
+                blah.style.display = "block";
+                let [a] = image.files;
+                a && (blah.src = URL.createObjectURL(a))
+            };
         </script>
     @endpush
 </x-app-layout>

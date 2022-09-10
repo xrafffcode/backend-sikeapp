@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Drug;
 use App\Models\DrugCategory;
+use Illuminate\Support\Facades\Storage;
 
 class DrugController extends Controller
 {
@@ -47,8 +48,11 @@ class DrugController extends Controller
             'description' => 'required',
         ]);
 
+        $data = $request->all();
+        $data['image'] = $request->file('image')->store('drug', 'public');
+
         try {
-            Drug::create($request->all());
+            Drug::create($data);
             return redirect()->route('drug.index')->with('success', 'Drug created successfully');
         } catch (\Exception $e) {
             return redirect()->route('drug.create')->with('error', 'Error creating Drug');
@@ -74,7 +78,7 @@ class DrugController extends Controller
      */
     public function edit($id)
     {
-        return view('drug.edit', [
+        return view('pages.drug.edit', [
             'drug' => Drug::findOrFail($id)
         ]);
     }
@@ -105,8 +109,9 @@ class DrugController extends Controller
     public function destroy($id)
     {
         try {
+            Storage::disk('public')->delete(Drug::findOrFail($id)->image);
             Drug::findOrFail($id)->delete();
-            return redirect()->route('drug.index')->with('success', 'drug deleted successfully');
+            return redirect()->route('drug.index')->with('success', 'Drug deleted successfully');
         } catch (\Exception $e) {
             return redirect()->route('drug.index')->with('error', 'Error deleting drug');
         }
